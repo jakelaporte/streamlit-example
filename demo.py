@@ -121,7 +121,7 @@ time = data.columns[idx_time]
 approx=find_approximate_data(data,time)
 show_values = np.array([approx-percent*approx,approx-percent/2*approx,approx,
                         approx+percent/2*approx,approx+percent*approx])
-show_values
+
 chart = c1.df.copy()
 for val in show_values:
     new_data = data.copy()
