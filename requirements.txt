@@ -1,3 +1,13 @@
-altair
+scipy
+matplotlib
+numpy==1.18.1
 pandas
-streamlit
+seaborn
+plotly
+lmfit
+imageio
+tabulate
+scikit-learn
+yfinance
+latex
+openpyxl
