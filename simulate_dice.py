@@ -9,6 +9,8 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 
+    
+
 st.header("Adding distributions")
 st.write("""Two discrete, uniform probability distribution added together
          gives a triangular distribution. This simple dice throwing 
@@ -22,9 +24,12 @@ throws = 1
 bar_width=30
 incr = st.number_input("Click to throw more dice:",min_value = 0,
                        max_value = 10000, step = stepsize, format="%d")
-np.random.randint(1,7,throws).reshape(-1,1)
-red_die = pd.Series(np.random.randint(1,7,throws),name = "roll")
-blue_die = pd.Series(np.random.randint(1,7,throws),name = "roll")
+
+
+if "red_die" not in st.session_state:
+    st.session_state.red_die = pd.Series(np.random.randint(1,7,throws),name = "roll")
+if "blue_die" not in st.session_state:
+    st.session_state.blue_die = pd.Series(np.random.randint(1,7,throws),name = "roll")
 col1,col2,col3 = st.columns(3)
 
 new_throws = np.random.randint(1,7,incr)
@@ -33,9 +38,10 @@ new_throws_blue = np.random.randint(1,7,incr)
 incr_throws = pd.Series(new_throws,name = "roll")
 incr_throws_blue = pd.Series(new_throws_blue,name="roll")
 
-red_die = pd.concat([red_die,incr_throws],axis=0,ignore_index=True)
-blue_die = pd.concat([blue_die,incr_throws_blue],axis=0,ignore_index=True)
-
+st.session_state.red_die = pd.concat([st.session_state.red_die,incr_throws],axis=0,ignore_index=True)
+st.session_state.blue_die = pd.concat([st.session_state.blue_die,incr_throws_blue],axis=0,ignore_index=True)
+red_die = st.session_state.red_die
+blue_die = st.session_state.blue_die
 
 red_distn = pd.DataFrame(red_die.value_counts().sort_index())
 red_distn["distn"]=red_distn["count"]/red_distn["count"].sum()
