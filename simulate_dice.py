@@ -37,11 +37,7 @@ col1,col2,col3 = st.columns(3)
 red_die = st.session_state.red_die[:idx_]
 blue_die = st.session_state.blue_die[:idx_]
 
-red_die
-
-
 red_distn = pd.DataFrame(red_die.value_counts().sort_index())
-red_distn
 red_distn["distn"]=red_distn["roll"]/red_distn["roll"].sum()
 red_distn["rolls"] = red_distn.index
 c = alt.Chart(red_distn,title="Red Die").mark_bar(size=bar_width).encode(
