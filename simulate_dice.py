@@ -42,7 +42,7 @@ red_die
 
 red_distn = pd.DataFrame(red_die.value_counts().sort_index())
 red_distn
-red_distn["distn"]=red_distn["count"]/red_distn["count"].sum()
+red_distn["distn"]=red_distn["roll"]/red_distn["roll"].sum()
 red_distn["rolls"] = red_distn.index
 c = alt.Chart(red_distn,title="Red Die").mark_bar(size=bar_width).encode(
     x="rolls",
