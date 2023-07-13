@@ -13,8 +13,8 @@ import streamlit as st
 
 st.write("""
           # Kondonculator 2.0
-          Input your csv file with times as columns and observations
-          as rows. Ensure you have the correct number of non-numerical 
+          Input your csv file with times (top row needs to be the times that the data was collected)
+          as columns and observations as rows. Ensure you have the correct number of non-numerical 
           columns.
           """)
 
