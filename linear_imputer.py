@@ -281,6 +281,12 @@ try:
         col1.altair_chart(c2+c1,use_container_width=True)
         col2.write("# ")
         col2.write(data)
+        st.divider()
+        st.download_button(label="Download csv",
+                   data = merge_df(df,col),
+                   file_name='rename.csv')
+    
+    
     else:
         st.write("This row was deleted and not used in the final dataframe.")
     
