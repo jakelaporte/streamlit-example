@@ -19,7 +19,7 @@ import altair as alt
 
 @st.cache_data
 def get_data(df):
-    return df.to_csv().encode('utf-8')
+    return df.to_csv(index=False).encode('utf-8')
 
 class Imputer(object):
     def __init__(self,data,times,admin_cols):
