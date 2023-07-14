@@ -17,6 +17,10 @@ import streamlit as st
 import altair as alt
 
 
+@st.cache_data
+def get_data(df):
+    return df.to_csv().encode('utf-8')
+
 class Imputer(object):
     def __init__(self,data,times,admin_cols):
         """
@@ -283,7 +287,7 @@ try:
         col2.write(data)
         st.divider()
         st.download_button(label="Download csv",
-                   data = merge_df(df,col),
+                   data = get_data(new_df),
                    file_name='rename.csv')
     
     
