@@ -11,4 +11,4 @@ scikit-learn
 yfinance
 latex
 openpyxl
-scikit-digital-health
+skdh
