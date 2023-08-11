@@ -59,9 +59,9 @@ def find_zeros(fp,f,t):
     i=0
     zeros = [[0,0]]
     for x1 in fp[1:]:
-        i+=1
         if x0*x1<0:
             zeros.append([int((t[i]+t[i+1])/2),round((f[i]+f[i+1])/2,3)])
+        i+=1  
         x0=x1
     zeros.pop(0)
     return (zeros)
