@@ -248,6 +248,8 @@ class Curve (object):
         self.AUC240, self.iAUC240 = self.auc(240)
 
         for point in self.critical_points:
+            if point[0] < self.t[0]:
+                self.point[0]=self.t[0]
             if self.fpp(point[0])<=0:
                 self.local_max.append(point)
             else:
