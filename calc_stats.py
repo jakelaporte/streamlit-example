@@ -249,7 +249,7 @@ class Curve (object):
 
         for point in self.critical_points:
             if point[0] < self.t[0]:
-                self.point[0]=self.t[0]
+                point[0]=self.t[0]
             if self.fpp(point[0])<=0:
                 self.local_max.append(point)
             else:
