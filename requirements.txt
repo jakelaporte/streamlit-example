@@ -1,5 +1,6 @@
 scipy
 matplotlib
+numba
 numpy==1.26.4
 pandas
 seaborn
